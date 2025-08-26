@@ -48,3 +48,10 @@ As in the previous examples, we want to know the probability of each Markov chai
 | Previous days are HLH |               |              |
 | Previous days are HHL |               |              |
 | Previous days are HHH |               |              |
+
+## MQL5 Code to Analyze the Markov Chain Transition Probability
+In the [MQL5 folder](https://github.com/handiko/Other-Examples-Markov-Chain-In-Financial-Market-Risk/tree/main/MQL5%20Code) included in this article, I provided a simple use code that shows the use case of Markov Chain analysis to assess market volatility risk, by extracting the transition probability.
+Also, as an example, I would use the code in the BTC-USD market (Bitcoin) as an example in this article.
+
+Code: [Relative Volatility Study - 3 Candle.mq5](https://github.com/handiko/Other-Examples-Markov-Chain-In-Financial-Market-Risk/blob/main/MQL5%20Code/Relative%20Volatility%20Study%20-%203%20Candle.mq5)
+Market: BTC-USD, Daily Timeframe

@@ -130,3 +130,8 @@ The transition probability based on the results:
 
 3. Another interesting result is, **two or more consecutive low-volatility days are highly likely to precede another low-volatility day, and two or more consecutive high-volatility days are highly likely to precede another high-volatility day** as well. These results describe a direct observation of **"Volatility Clustering"**, which is a phenomenon observed in financial markets where _periods of high volatility tend to be followed by periods of high volatility and low volatility is followed by low volatility_.
 
+The volatility clustering phenomenon on the BTC-USD market can be observed visually on the following chart from the end of the 2022 / early 2023 period.
+
+![](./BTCUSDDaily.png)
+
+---

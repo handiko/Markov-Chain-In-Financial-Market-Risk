@@ -44,6 +44,7 @@ int OnInit() {
      for(int i = 0; i < CANDLE; i++) {
           price[i].h = 0.0;
           price[i].l = 0.0;
+          price[i].o = 0.0;
      }
 
      return(INIT_SUCCEEDED);
@@ -131,3 +132,4 @@ void PrintResult(int c, int &total) {
            " ", pattern[c].count > total ? "*" : " ");
 }
 //+------------------------------------------------------------------+
+

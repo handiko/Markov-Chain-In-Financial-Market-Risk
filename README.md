@@ -57,3 +57,53 @@ Also, as an example, I would use the code in the BTC-USD market (Bitcoin) as an 
 Code: [Relative Volatility Study - 3 Candle.mq5](https://github.com/handiko/Other-Examples-Markov-Chain-In-Financial-Market-Risk/blob/main/MQL5%20Code/Relative%20Volatility%20Study%20-%203%20Candle.mq5)
 
 Market: BTC-USD, Daily Timeframe
+
+In the code, one can input the volatility threshold (in percent) that will be used to determine whether the evaluated day is either high or low volatility. As each market has different volatility characteristics, one should input the threshold for whatever suitable for them. In this example, I would use **5% as the threshold**. It means, if the daily range is below 5% relative to the open price, it would be categorized as a low volatility day $L%, otherwise, a high volatility day $H$.
+
+MQL5 code snippets on this example: (spoiler, it is very similar to the previous example)
+```mql5
+input static ENUM_TIMEFRAMES InpTimeframe = PERIOD_D1;     // Timeframe
+input double InpVolatilityThreshold = 1;                   // Volatility Threshold in Percent
+
+#define PREVIOUS_CANDLE 3
+#define CANDLE (PREVIOUS_CANDLE+1)
+#define COMBINATIONS 16
+
+struct Pattern {
+     int       count;
+     double    probability;
+};
+
+struct Price {
+     double    o;
+     double    h;
+     double    l;
+     double    pct_range;
+};
+
+Pattern pattern[COMBINATIONS];
+Price price[CANDLE];
+
+\\ ------------------
+
+void OnTick() {
+     int bars = iBars(_Symbol, InpTimeframe);
+     int patt = 0;
+     if(bars != totalBars) {
+          totalBars = bars;
+
+          for(int i = 0; i < CANDLE; i++) {
+               price[i].h = iHigh(_Symbol, InpTimeframe, CANDLE - i);
+               price[i].l = iLow(_Symbol, InpTimeframe, CANDLE - i);
+               price[i].o = iOpen(_Symbol, InpTimeframe, CANDLE - i);
+
+               price[i].pct_range = 100.0 * (price[i].h - price[i].l) / price[i].o;
+
+               patt += ((price[i].pct_range > InpVolatilityThreshold ? 1 : 0) << (CANDLE - 1 - i));
+          }
+
+          CountPattern(pattern[patt]);
+     }
+}
+
+```

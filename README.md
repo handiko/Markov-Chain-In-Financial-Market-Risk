@@ -38,16 +38,16 @@ Therefore, the possible list of Markov chain transitions that could occur in thi
 
 16 possible cases could occur in the market.
 As in the previous examples, we want to know the probability of each Markov chain transition as per the table below:
-|                       | Next day is H | Nex day is L |
-|-----------------------|---------------|--------------|
-| Previuos days are LLL |               |              |
-| Previuos days are LLH |               |              |
-| Previuos days are LHL |               |              |
-| Previous days are LHH |               |              |
-| Previous days are HLL |               |              |
-| Previous days are HLH |               |              |
-| Previous days are HHL |               |              |
-| Previous days are HHH |               |              |
+|                       | Next day is H | Next day is L |
+|-----------------------|---------------|---------------|
+| Previuos days are LLL |               |               |
+| Previuos days are LLH |               |               |
+| Previuos days are LHL |               |               |
+| Previous days are LHH |               |               |
+| Previous days are HLL |               |               |
+| Previous days are HLH |               |               |
+| Previous days are HHL |               |               |
+| Previous days are HHH |               |               |
 
 ## MQL5 Code to Analyze the Markov Chain Transition Probability
 In the [MQL5 folder](https://github.com/handiko/Other-Examples-Markov-Chain-In-Financial-Market-Risk/tree/main/MQL5%20Code) included in this article, I provided a simple use code that shows the use case of Markov Chain analysis to assess market volatility risk, by extracting the transition probability.
@@ -114,16 +114,18 @@ The results are as follows:
 
 The transition probability based on the results:
 
-|                       | Next day is H | Nex day is L |
-|-----------------------|---------------|--------------|
-| Previuos days are LLL | 0.2           | 0.8          |
-| Previuos days are LLH | 0.35          | 0.65         |
-| Previuos days are LHL | 0.31          | 0.69         |
-| Previous days are LHH | 0.58          | 0.42         |
-| Previous days are HLL | 0.28          | 0.72         |
-| Previous days are HLH | 0.48          | 0.52         |
-| Previous days are HHL | 0.49          | 0.51         |
-| Previous days are HHH | 0.71          | 0.29         |
+|                       | Next day is H | Next day is L |
+|-----------------------|---------------|---------------|
+| Previuos days are LLL | 0.2           | 0.8           |
+| Previuos days are LLH | 0.35          | 0.65          |
+| Previuos days are LHL | 0.31          | 0.69          |
+| Previous days are LHH | 0.58          | 0.42          |
+| Previous days are HLL | 0.28          | 0.72          |
+| Previous days are HLH | 0.48          | 0.52          |
+| Previous days are HHL | 0.49          | 0.51          |
+| Previous days are HHH | 0.71          | 0.29          |
 
 ## Something Interesting About The Results
+As we can see from the results above, basically, the majority of the days in the BTC-USD market are low-volatility days, as most of the high probability transitions are in favor of the "Next day is L" column.
 
+Another interesting result is, two or more low-volatility days are highly likely to precede another low-volatility day, and two or more high-volatility days are highly likely to precede another high-volatility day as well. These results describe a direct observation of **"Volatility Clustering"**, which is a phenomenon observed in financial markets where periods of high volatility tend to be followed by periods of high volatility and low volatility is followed by low volatility.

@@ -116,14 +116,14 @@ The transition probability based on the results:
 
 |                       | Next day is H | Nex day is L |
 |-----------------------|---------------|--------------|
-| Previuos days are LLL |               |              |
-| Previuos days are LLH |               |              |
-| Previuos days are LHL |               |              |
-| Previous days are LHH |               |              |
-| Previous days are HLL |               |              |
-| Previous days are HLH |               |              |
-| Previous days are HHL |               |              |
-| Previous days are HHH |               |              |
+| Previuos days are LLL | 0.2           | 0.8          |
+| Previuos days are LLH | 0.35          | 0.65         |
+| Previuos days are LHL | 0.31          | 0.69         |
+| Previous days are LHH | 0.58          | 0.42         |
+| Previous days are HLL | 0.28          | 0.72         |
+| Previous days are HLH | 0.48          | 0.52         |
+| Previous days are HHL | 0.49          | 0.51         |
+| Previous days are HHH | 0.71          | 0.29         |
 
 ## Something Interesting About The Results
 

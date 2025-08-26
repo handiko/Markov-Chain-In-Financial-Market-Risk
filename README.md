@@ -58,7 +58,7 @@ Code: [Relative Volatility Study - 3 Candle.mq5](https://github.com/handiko/Othe
 
 Market: BTC-USD, Daily Timeframe
 
-In the code, one can input the volatility threshold (in percent) that will be used to determine whether the evaluated day is either high or low volatility. As each market has different volatility characteristics, one should input the threshold for whatever suitable for them. In this example, I would use **5% as the threshold**. It means, if the daily range is below 5% relative to the open price, it would be categorized as a low volatility day $L%, otherwise, a high volatility day $H$.
+In the code, one can input the volatility threshold (in percent) that will be used to determine whether the evaluated day is either high or low volatility. As each market has different volatility characteristics, one should input the threshold for whatever suitable for them. In this example, I would use **5% as the threshold**. It means, if the daily range is below 5% relative to the open price, it would be categorized as a low volatility day $L$, otherwise, a high volatility day $H$.
 
 MQL5 code snippets on this example: (spoiler, it is very similar to the previous example)
 ```mql5

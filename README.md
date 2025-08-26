@@ -7,7 +7,7 @@ Previous Section (part 2): [Using Markov chain to analyze first insight of a for
 
 ---
 
-Other than the market directionality, like in the previous section, in this article, I'd like to measure the market risk in terms of volatility using Markov chain analysis. Instead of an up or down day, we'll see a sequence of High or Low volatility days preceding a High or Low volatility day.
+Other than the market directionality like in the previous section, now, I'd like to measure the market risk in terms of volatility using Markov chain analysis. Instead of an up or down day, we'll see a sequence of High or Low volatility days preceding a High or Low volatility day.
 
 ## Basic Understanding of Market Volatility
 My definition of market volatility is as simple as: **"How large is the distance between the high of the day and the low of the day?"**. In other words, volatility is **the price range of the day**. (at least in my definition).

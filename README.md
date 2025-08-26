@@ -30,4 +30,5 @@ Therefore, the possible list of Markov chain transitions that could occur in thi
 * $HHL \to H$
 * $HHH \to L$
 * $HHH \to H$
+
 16 possible cases could occur in the market.

@@ -8,7 +8,7 @@
 #property version   "1.00"
 
 input static ENUM_TIMEFRAMES InpTimeframe = PERIOD_D1;     // Timeframe
-input double InpVolatilityThreshold = 1;                   // Volatility Threshold in Percent
+input double InpVolatilityThreshold = 5.0;                 // Volatility Threshold in Percent
 
 #define PREVIOUS_CANDLE 3
 #define CANDLE (PREVIOUS_CANDLE+1)
@@ -132,5 +132,6 @@ void PrintResult(int c, int &total) {
            " ", pattern[c].count > total ? "*" : " ");
 }
 //+------------------------------------------------------------------+
+
 
 

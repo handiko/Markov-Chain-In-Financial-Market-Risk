@@ -107,3 +107,21 @@ void OnTick() {
 }
 
 ```
+
+The results are as follows:
+
+![](./3-candle-market-risk.png)
+
+The transition probability based on the results:
+
+|                       | Next day is H | Nex day is L |
+|-----------------------|---------------|--------------|
+| Previuos days are LLL |               |              |
+| Previuos days are LLH |               |              |
+| Previuos days are LHL |               |              |
+| Previous days are LHH |               |              |
+| Previous days are HLL |               |              |
+| Previous days are HLH |               |              |
+| Previous days are HHL |               |              |
+| Previous days are HHH |               |              |
+

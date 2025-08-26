@@ -84,7 +84,7 @@ struct Price {
 Pattern pattern[COMBINATIONS];
 Price price[CANDLE];
 
-\\ ------------------
+// ------------------
 
 void OnTick() {
      int bars = iBars(_Symbol, InpTimeframe);

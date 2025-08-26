@@ -8,5 +8,5 @@ It could be measured in percent, pips, standard deviation, or any units that are
 My definition of today's volatility is **"the price distance between the high of the day and the low of the day, compared to the open price of the day, measured in percent"**.
 
 $$
-V = {P_H - P_L} / P_O
+V = \frac{{P_H - P_L}} / P_O
 $$

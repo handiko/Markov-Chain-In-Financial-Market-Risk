@@ -37,3 +37,14 @@ Therefore, the possible list of Markov chain transitions that could occur in thi
 * $HHH \to H$
 
 16 possible cases could occur in the market.
+As in the previous examples, we want to know the probability of each Markov chain transition as per tthe able below:
+|                       | Next day is H | Nex day is L |
+|-----------------------|---------------|--------------|
+| Previuos days are LLL |               |              |
+| Previuos days are LLH |               |              |
+| Previuos days are LHL |               |              |
+| Previous days are LHH |               |              |
+| Previous days are HLL |               |              |
+| Previous days are HLH |               |              |
+| Previous days are HHL |               |              |
+| Previous days are HHH |               |              |

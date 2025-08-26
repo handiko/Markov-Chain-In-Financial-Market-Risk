@@ -126,6 +126,7 @@ The transition probability based on the results:
 | Previous days are HHH | 0.71          | 0.29          |
 
 ## Something Interesting About The Results
-As we can see from the results above, basically, the majority of the days in the BTC-USD market are low-volatility days, as most of the high probability transitions are in favor of the "Next day is L" column.
+1. As we can see from the results above, basically, **the majority of the days in the BTC-USD market are low-volatility days**, as most of the high probability transitions are in favor of the "Next day is L" column.
 
-Another interesting result is, two or more low-volatility days are highly likely to precede another low-volatility day, and two or more high-volatility days are highly likely to precede another high-volatility day as well. These results describe a direct observation of **"Volatility Clustering"**, which is a phenomenon observed in financial markets where periods of high volatility tend to be followed by periods of high volatility and low volatility is followed by low volatility.
+3. Another interesting result is, **two or more low-volatility days are highly likely to precede another low-volatility day, and two or more high-volatility days are highly likely to precede another high-volatility day** as well. These results describe a direct observation of **"Volatility Clustering"**, which is a phenomenon observed in financial markets where _periods of high volatility tend to be followed by periods of high volatility and low volatility is followed by low volatility.
+

@@ -141,3 +141,5 @@ The volatility clustering phenomenon on the BTC-USD market can be observed visua
 ![](./BTCUSDDaily.png)
 
 ---
+
+Next Section (part 4): [Trading Strategy Development Example](https://github.com/handiko/Trading-Strategy-Development-Example/blob/main/README.md)

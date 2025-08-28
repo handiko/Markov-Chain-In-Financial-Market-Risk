@@ -7,18 +7,17 @@ Previous Section (part 2): [Using Markov chain to analyze first insight of a for
 
 ---
 
-In addition to the market directionality discussed in the previous section, I would now like to measure market risk in terms of volatility using Markov chain analysis. Instead of an up or down day, we'll see a sequence of High or Low volatility days preceding a High or Low volatility day.
+Building on our previous discussion of market directionality, this section introduces a new application of Markov chain analysis to measure market risk. By shifting our focus from directional movement (up or down days) to volatility, we can now analyze the sequences of high or low volatility days that precede similar volatility states.
 
 ## Basic Understanding of Market Volatility
-My definition of market volatility is as simple as: **"How large is the distance between the high of the day and the low of the day?"**. In other words, volatility is **the price range of the day**. (at least in my definition).
-It can be measured in percentage, pips, standard deviation, or any units suitable for each case.
-The definition of today's relative volatility used in this article is **"the price distance between the high of the day and the low of the day, compared to the open price of the day, measured in percent"**.
+In this analysis, market volatility is defined simply as the price range of the day. Specifically, it's the distance between the high and low of the day. This metric can be expressed in various units, such as percentages, pips, or standard deviations. For this article, today's relative volatility is measured as the percentage distance between the high and low of the day, relative to the open price.
 
 $$
 V_{R} = 100 \frac{{P_H - P_L}}{P_O}
 $$
 
-The understanding of market volatility is mostly used in terms of risk assessment. A high volatility day could make the running trade go haywire, as the wild price movement could trigger the stop loss and reverse back to the previous profitable price area (a price whipsaw). In this case, one can reduce the market exposure, move the stop loss into the profitable level (trailing stop), close the position, or use another trade management mechanism. For me personally, I'd like to trade in a low volatility environment as the price would likely move to either take profit or stop loss level smoothly. Other trading strategies might be profitable on this highly volatile day instead. Therefore, volatility assessment could be used as a trading strategy filter that is suitable for each case.
+Understanding market volatility is essential for effective risk management. High volatility can lead to unpredictable price swings, increasing the risk of a trade going "haywire." This wild movement can trigger a stop loss, only for the price to reverse back to a previously profitable area—a phenomenon known as a price whipsaw. In such an environment, traders can use several risk management techniques, such as reducing market exposure, implementing a trailing stop, or closing the position entirely.
+Personally, I prefer trading in low-volatility conditions, as price action tends to be smoother, allowing trades to more consistently reach their take-profit or stop-loss levels. However, there are other strategies specifically designed to capitalize on high-volatility environments. Ultimately, volatility assessment can serve as a crucial filter to determine which trading strategy is most suitable for a given market condition.
 
 ## High Order Markov Chain of Market Volatility
 In this article, I use a sequence of **three preceding days** to analyze the next day's volatility probability. A high volatility day would be represented as an $H$, and a low volatility day would be represented as an $L$.
@@ -54,15 +53,13 @@ As in the previous examples, we want to know the probability of each Markov chai
 | Previous days are HHH |               |               |
 
 ## MQL5 Code to Analyze the Markov Chain Transition Probability
-In the [MQL5 folder](https://github.com/handiko/Other-Examples-Markov-Chain-In-Financial-Market-Risk/tree/main/MQL5%20Code) included in this article, I provided a simple use code that shows the use case of Markov Chain analysis to assess market volatility risk, by extracting the transition probability.
-Also, as an example, I would use the code in the BTC-USD market (Bitcoin) as an example in this article.
-
+To demonstrate the application of Markov Chain analysis in assessing market volatility risk, I've included a sample MQL5 code in the [provided folder](https://github.com/handiko/Other-Examples-Markov-Chain-In-Financial-Market-Risk/tree/main/MQL5%20Code). This code extracts transition probabilities to give insight into market risk. For illustrative purposes, this article will use the Bitcoin (BTC-USD) market as a case study.
 
 Code: [Relative Volatility Study - 3 Candle.mq5](https://github.com/handiko/Other-Examples-Markov-Chain-In-Financial-Market-Risk/blob/main/MQL5%20Code/Relative%20Volatility%20Study%20-%203%20Candle.mq5)
 
 Market: BTC-USD, Daily Timeframe
 
-In the code, one can input the volatility threshold (in percent) that will be used to determine whether the evaluated day is either high or low volatility. As each market has different volatility characteristics, one should input the threshold for whatever suitable for them. In this example, I would use **5% as the threshold**. It means, if the daily range is below 5% relative to the open price, it would be categorized as a low volatility day $L$, otherwise, a high volatility day $H$.
+The provided code allows for a user-defined volatility threshold (in percent) to classify each day as either high or low volatility. This threshold should be tailored to the specific characteristics of the market being analyzed. For this example, a 5% threshold is used. This means any day with a daily range below 5% of its opening price is categorized as a low-volatility day ($L$), while any day with a range of 5% or more is considered a high-volatility day ($H$).
 
 MQL5 code snippets on this example: (spoiler, it is very similar to the previous example)
 ```mql5
@@ -130,13 +127,13 @@ The transition probability based on the results:
 | Previous days are HHH | 0.71          | 0.29          |
 
 ## Something Interesting About The Results
-1. As we can see from the results above, basically, **the majority of the days in the BTC-USD market are low-volatility days** (less than 5% percent threshold), as most of the high probability transitions are in favor of the "Next day is L" column.
+1. From the results, it's clear that **the majority of days in the BTC-USD market are low-volatility days**, with a daily range below the 5% threshold. This is evidenced by the high probability transitions favoring the "Next day is L" column.
+2. The results also directly illustrate the phenomenon of **"Volatility Clustering"**. We observe that two or more consecutive low-volatility days are highly likely to precede another low-volatility day. Conversely, two or more consecutive high-volatility days are also highly likely to be followed by another high-volatility day. This confirms that **periods of high volatility tend to be followed by more high volatility, and periods of low volatility are followed by low volatility**.
+3. Further analysis reveals nuanced probabilities:
+* If exactly one of the last three days was a low-volatility day, the probability of the next day being high-volatility is roughly 50%.
+* If two of the last three days were low-volatility days (even if not consecutive), the probability of the next day also being low-volatility exceeds 65%.
 
-2. Another interesting result is, **two or more consecutive low-volatility days are highly likely to precede another low-volatility day, and two or more consecutive high-volatility days are highly likely to precede another high-volatility day** as well. These results describe a direct observation of **"Volatility Clustering"**, which is a phenomenon observed in financial markets where _periods of high volatility tend to be followed by periods of high volatility and low volatility is followed by low volatility_.
-
-3. If there is exactly one low-volatility day in the last three days, the probability of the next day being a high-volatility day is basically 50-50. And if there are two low-volatility days in the last three days, even though those days are not consecutive, the next day being a low-volatility day has more than 65% probability.
-
-The volatility clustering phenomenon on the BTC-USD market can be observed visually on the following chart in the middle of 2023.
+The chart below visually demonstrates this volatility clustering in the BTC-USD market during the middle of 2023.
 
 ![](./BTCUSDDaily.png)
 

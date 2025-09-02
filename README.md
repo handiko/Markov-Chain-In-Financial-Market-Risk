@@ -142,3 +142,7 @@ The chart below visually demonstrates this volatility clustering in the BTC-USD 
 Next Section (part 4): [Trading Strategy Development Example](https://github.com/handiko/Trading-Strategy-Development-Example/blob/main/README.md)
 
 Next Section (part 5): [Trading Strategy Improvement](https://github.com/handiko/Improvement-to-an-existing-strategy/blob/main/README.md)
+
+---
+
+Back to [Index](https://github.com/handiko/handiko/blob/master/README.md)
